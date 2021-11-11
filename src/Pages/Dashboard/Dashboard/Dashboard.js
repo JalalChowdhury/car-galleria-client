@@ -28,6 +28,10 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import DashboardProfile from '../DashboardProfile/DashboardProfile';
 import Pay from '../Pay/Pay';
 import AddProducts from './../AddProducts/AddProducts';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import MyOrders from '../MyOrders/MyOrders';
+import Review from './../Review/Review';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 
 
@@ -52,27 +56,34 @@ function Dashboard(props) {
 
             <Divider />
             
-            <Link to='/products' style={{ textDecoration: 'none', color: 'blue' }}>
-                <Button color="inherit">Products</Button>
+            <InboxIcon /> <Link to='/home' style={{ textDecoration: 'none', color: 'blue' }}>
+                <Button color="inherit">Home</Button>
             </Link>
              <br />
 
-            <Link to={`${url}/pay`}><Button color="inherit">Pay</Button></Link>
+             {/* <Link to={`${url}`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Dashboard</Button></Link> */}
+
+             <InboxIcon /> <Link to={`${url}/myOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">My Orders</Button></Link>
+            <br />
+            <InboxIcon /> <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Payment</Button></Link>
+            <br />
+            <InboxIcon /> <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Review</Button></Link>
+            <br />
+            <InboxIcon /> <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage all orders</Button></Link>
 
             <br />
 
 
 
-            <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+            <InboxIcon /> <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Make Admin</Button></Link>
             <br />
 
-
-
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-
+            <InboxIcon /> <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">addProduct</Button></Link>
             <br />
-
-            <Link to={`${url}/addProduct`}><Button color="inherit">addProduct</Button></Link>
+            <InboxIcon /> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Product</Button></Link>
+            <br />
+            <Divider />
+            <InboxIcon /> <Link to={`${url}/logout`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Log Out</Button></Link>
 
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -162,15 +173,28 @@ function Dashboard(props) {
                     <Route  path={`${path}/addProduct`}>
                         <AddProducts></AddProducts>
                     </Route>
-
-                    {/* <Route path={`${path}`}>
-                        <DashboardProfile></DashboardProfile>
-                    </Route> */}
-
+                    <Route  path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </Route>
+                    <Route  path={`${path}/myOrders`}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route  path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </Route>
+                    <Route path={`${path}/manageProducts`}>
+                          <ManageProducts></ManageProducts>
+                    </Route>
 
+
+                    <Route path={`${path}`}>
+                        <DashboardProfile></DashboardProfile>
+                    </Route>
+
+                    
                 </Switch>
 
 

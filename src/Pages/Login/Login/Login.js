@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hook/useAuth';
+import loginImg from '../../../Images/loginBanner.svg';
 
 
 const Login = () => {
@@ -29,7 +30,7 @@ const Login = () => {
     }
     return (
         <Container>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{mt:15}}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                     <Typography variant="body1" gutterBottom>Login</Typography>
                     <form onSubmit={handleLoginSubmit}>
@@ -59,11 +60,11 @@ const Login = () => {
                         {user?.email && <Alert severity="success">Login successfully!</Alert>}
                         {authError && <Alert severity="error">{authError}</Alert>}
                     </form>
-                    <p>------------------------</p>
+                   
                     <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    {/* <img style={{ width: '100%' }} src={login} alt="" /> */}
+                    <img style={{ width: '100%' }} src={loginImg} alt="" />
                 </Grid>
             </Grid>
         </Container>

@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hook/useAuth';
-
+import loginImg from '../../../Images/loginBanner.svg';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -27,8 +27,8 @@ const Register = () => {
         e.preventDefault();
     }
     return (
-        <Container>
-            <Grid container spacing={2}>
+        <Container >
+            <Grid container spacing={2} sx={{mt:15}}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                     <Typography variant="body1" gutterBottom>Register</Typography>
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
@@ -76,7 +76,7 @@ const Register = () => {
                     {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    {/* <img style={{ width: '100%' }} src={login} alt="" /> */}
+                    <img style={{ width: '100%' }} src={loginImg} alt="" />
                 </Grid>
             </Grid>
         </Container>

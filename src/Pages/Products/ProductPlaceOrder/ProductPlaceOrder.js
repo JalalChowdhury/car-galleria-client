@@ -9,10 +9,16 @@ import { useParams } from 'react-router';
 import { Box } from '@mui/system';
 
 import './ProductPlaceOrder.css';
+import OrderPlaceModal from '../OrderPlaceModal/OrderPlaceModal';
 
 const ProductPlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+
+    // for modal update 
+    const [openBooking, setOpenBooking] = React.useState(false);
+    const handleBookingOpen = () => setOpenBooking(true);
+    const handleBookingClose = () => setOpenBooking(false);
 
     useEffect(() => {
 
@@ -25,34 +31,44 @@ const ProductPlaceOrder = () => {
     }, [])
     return (
         <Box >
-            
 
-                <Card sx={{ maxWidth: "100%", maxheight: '70%', border: 0, boxShadow: 0 }}>
 
-                    <CardMedia
-                        component="img"
-                        imgage-design
+            <Card sx={{ maxWidth: "100%", maxheight: '70%', border: 0, boxShadow: 0 }}>
 
-                        style={{ width: '100%', height: '600px' }}
-                        image={product.img}
-                        alt="green iguana"
-                    />
-                    <CardContent>
+                <CardMedia
+                    component="img"
+                    imgage-design
 
-                        <Typography variant="h5" component="div">
-                            {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="text.primary">
-                            {product.description}
-                        </Typography>
-                    </CardContent>
-                    <Button variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
-                        Order Place
-                    </Button>
+                    style={{ width: '100%', height: '600px' }}
+                    image={product.img}
+                    alt="green iguana"
+                />
+                <CardContent>
 
-                </Card>
+                    <Typography variant="h5" component="div">
+                        {product.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.primary">
+                        {product.description}
+                    </Typography>
+                </CardContent>
+               
+                <Button   onClick={handleBookingOpen} variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
+                    Order Place
+                </Button>
 
-           
+            </Card>
+
+            <OrderPlaceModal
+                product={product}
+                openBooking={openBooking}
+                handleBookingClose={handleBookingClose}
+                // setBookingSuccess={setBookingSuccess}
+
+            >
+            </OrderPlaceModal>
+
+
         </Box>
     );
 };
