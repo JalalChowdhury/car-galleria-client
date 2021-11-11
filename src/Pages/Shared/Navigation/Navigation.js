@@ -1,12 +1,14 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import useAuth from "../../../hook/useAuth";
 
-import './Navigation.css'
+import './Navigation.css';
 
 const Navigation = () => {
 
- 
+  const { user, logout } = useAuth();
 
   return (
     <div style={{ marginBottom: '60px' }}    >
@@ -44,23 +46,34 @@ const Navigation = () => {
                 Products
               </Link>
 
-             
-              
-              <Link
-                to="/dashboard"
-                className="text-decoration-none fs-5 me-3 header-text fw-bold"
-              >
-                Dashboard
-              </Link>
+              {
+                user?.email ?
+                  <>
+                    <Link
+                      to="/dashboard"
+                      className="text-decoration-none fs-5 me-3 header-text fw-bold"
+                    >
+                      Dashboard
+                    </Link>
 
-             
-              <Link
-                to="/login"
-                className="text-decoration-none fs-5 me-3 header-text fw-bold"
-              >
-                Login
-              </Link>
-            
+                    <Button onClick={logout} className="logout-btn text-decoration-none fs-5 me-3 header-text fw-bold">Log Out</Button>
+
+
+                  </>
+                  :
+                  <Link
+                    to="/login"
+                    className="text-decoration-none fs-5 me-3 header-text fw-bold"
+                  >
+                    Login
+                  </Link>
+              }
+
+
+
+
+
+
 
             </Nav>
           </Navbar.Collapse>
