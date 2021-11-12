@@ -12,7 +12,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import ProductPlaceOrder from './Pages/Products/ProductPlaceOrder/ProductPlaceOrder';
 import Products from './Pages/Products/Products/Products';
-import Navigation from './Pages/Shared/Navigation/Navigation';
+// import Navigation from './Pages/Shared/Navigation/Navigation';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <AuthProvider>
 
         <BrowserRouter>
-          <Navigation></Navigation>
+         
 
           <Switch>
 
@@ -38,10 +38,10 @@ function App() {
               <Products></Products>
 
             </Route>
-            <Route  path="/product/:productId">
+            <PrivateRoute  path="/product/:productId">
               <ProductPlaceOrder></ProductPlaceOrder>
 
-            </Route>
+            </PrivateRoute>
 
 
             <PrivateRoute path="/dashboard">

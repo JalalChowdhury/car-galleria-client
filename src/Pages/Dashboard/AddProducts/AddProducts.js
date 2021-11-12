@@ -24,8 +24,8 @@ const AddProducts = () => {
         const description = descriptionRef.current.value;
 
         const newUser = { name, img, price, modelYear, description };
-        console.log("add product n ame", name);
-        console.log("add product des ame", description);
+        // console.log("add product n ame", name);
+        // console.log("add product des ame", description);
 
         // send to the server
         fetch('http://localhost:5000/products', {

@@ -10,6 +10,7 @@ import { Box } from '@mui/system';
 
 import './ProductPlaceOrder.css';
 import OrderPlaceModal from '../OrderPlaceModal/OrderPlaceModal';
+import { Link } from 'react-router-dom';
 
 const ProductPlaceOrder = () => {
     const { productId } = useParams();
@@ -43,19 +44,34 @@ const ProductPlaceOrder = () => {
                     image={product.img}
                     alt="green iguana"
                 />
-                <CardContent>
+                <Box style={{ p: 7 }}>
+                    <CardContent >
 
-                    <Typography variant="h5" component="div">
-                        {product.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.primary">
-                        {product.description}
-                    </Typography>
-                </CardContent>
-               
-                <Button   onClick={handleBookingOpen} variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
+                        <Typography variant="h5" component="div">
+                            {product.name}
+                        </Typography>
+                        <Typography variant="p" component="div">
+                            Model Year : {product.modelYear}
+                        </Typography>
+                        <Typography variant="h6" component="div">
+                            ${product.price}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.primary">
+                            {product.description}
+                        </Typography>
+                    </CardContent>
+                </Box>
+
+                <Button onClick={handleBookingOpen} variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
                     Order Place
                 </Button>
+                <br />
+                <Link to="/home">
+                    <Button  variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
+                        Back to Home >>
+                    </Button>
+                </Link>
 
             </Card>
 
@@ -63,7 +79,7 @@ const ProductPlaceOrder = () => {
                 product={product}
                 openBooking={openBooking}
                 handleBookingClose={handleBookingClose}
-                // setBookingSuccess={setBookingSuccess}
+            // setBookingSuccess={setBookingSuccess}
 
             >
             </OrderPlaceModal>

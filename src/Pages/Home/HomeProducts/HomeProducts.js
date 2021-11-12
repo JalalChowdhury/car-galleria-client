@@ -28,13 +28,13 @@ const HomeProducts = () => {
     const topProducts = products.slice(0, 6);
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1 ,py:6}}>
             <Container>
-                <Typography sx={{ fontWeight: 600,m:2,color: 'info.main' ,textAlign:'center' }} variant="h6" component="div">
+                <Typography sx={{ fontWeight: 600,m:2,color: 'info.main' ,textAlign:'center',m:3 }} variant="h4" component="div">
                     Top Products
                 </Typography>
                
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{  sm: 12, md: 12 }}>
                     {
                         topProducts.map((product) =>
                             <ProductCard

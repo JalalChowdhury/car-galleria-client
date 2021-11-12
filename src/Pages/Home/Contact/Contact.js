@@ -8,14 +8,15 @@ const Contact = () => {
     e.preventDefault();
   }
 
-  
+
   return (
     <div className="contact">
       <section id="contact-section">
         <Fade bottom duration={2500}>
           <div className="form-container">
             <h2>Contact Us</h2>
-            <p>Email us and keep upto date with our latest news</p>
+            <p>FEEL FREE TO SEND US A MESSAGE
+              OR ASK FOR A FREE QUOTE</p>
             <div className="contactForm">
               <div>
                 <i className="fa fa-map-marker"></i>

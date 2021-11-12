@@ -1,0 +1,25 @@
+#home-header1{
+    font-size: 60px;
+    color:white;
+    }
+    #home-header2{
+    
+    color:white;
+    font-size: 20px;
+}
+.homeBanner{
+    width: 100%;
+    height: 600px;
+    filter: blur(2px) grayscale(50%);
+}
+    
+    
+    
+.header-bodyDesign{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+    
+}

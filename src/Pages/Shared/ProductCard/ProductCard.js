@@ -15,7 +15,7 @@ const ProductCard = (props) => {
 
 
     return (
-        <Grid item xs={2} sm={8} md={4}>
+        <Grid item  sm={12} md={4}>
 
             <Card sx={{ maxWidth: 345, border: 1, boxShadow: 0 }}>
 

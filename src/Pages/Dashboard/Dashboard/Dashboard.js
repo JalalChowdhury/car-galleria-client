@@ -1,21 +1,17 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+// import SvgIcon from '@mui/material/SvgIcon';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MenuIcon from '@mui/icons-material/Menu';
+
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
+import { AppBar, Button } from '@mui/material';
 
 import {
     Switch,
@@ -32,7 +28,10 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrders from '../MyOrders/MyOrders';
 import Review from './../Review/Review';
 import ManageProducts from '../ManageProducts/ManageProducts';
-
+import useAuth from '../../../hook/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import './Dashboard.css';
+import userEvent from '@testing-library/user-event';
 
 
 const drawerWidth = 240;
@@ -42,7 +41,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    // const { admin } = useAuth();
+    const { user,admin, logout } = useAuth();
     let { path, url } = useRouteMatch();
 
 
@@ -52,49 +51,123 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar sx={{ mb: 7 }} />
+
+            {/* <Divider /> */}
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+
+                m: 2
+            }}>
+                <i class="fas fa-home"></i><Link to='/home' style={{ textDecoration: 'none', color: 'blue' }}>
+                    <Button color="inherit">Home</Button>
+                </Link>
+            </Box>
+
+
+
+            {/* <Link to={`${url}`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Dashboard</Button></Link> */}
+            {
+                admin ? <Box>
+
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        m: 2
+                    }}>
+                        <i class="fas fa-cart-plus"></i> <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage all orders</Button></Link>
+
+                        <br />
+                    </Box>
+
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        m: 2
+                    }}>
+                        <i class="fas fa-user-shield"></i> <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Make Admin</Button></Link>
+                        <br />
+                    </Box>
+
+
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        m: 2
+                    }}>
+                        <i class="fas fa-plus-square"></i> <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">addProduct</Button></Link>
+                        <br />
+                    </Box>
+
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        m: 2
+                    }}>
+                        <i class="fas fa-cog"></i> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Product</Button></Link>
+                        <br />
+                    </Box>
+
+
+
+
+                </Box>
+                    :
+                    <Box>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            m: 2
+                        }}>
+                            <i class="fas fa-cart-plus"></i> <Link to={`${url}/myOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">My Orders</Button></Link>
+                            <br />
+                        </Box>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            m: 2
+                        }}>
+                            <i class="fas fa-file-invoice-dollar"></i> <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Payment</Button></Link>
+                            <br />
+
+                        </Box>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            m: 2
+                        }}>
+                            <i class="fas fa-comment-dots"></i><Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Review</Button></Link>
+                            <br />
+
+                        </Box>
+
+
+                    </Box>
+            }
+
+
 
             <Divider />
-            
-            <InboxIcon /> <Link to='/home' style={{ textDecoration: 'none', color: 'blue' }}>
-                <Button color="inherit">Home</Button>
-            </Link>
-             <br />
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                m: 2
+            }}>
 
-             {/* <Link to={`${url}`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Dashboard</Button></Link> */}
+                <i class="fas fa-sign-out-alt"></i> <Link to={`${url}/logout`} style={{ textDecoration: 'none', color: 'blue', p: 4 }}><Button onClick={logout} color="inherit">Log Out</Button></Link>
+                <br />
+            </Box>
 
-             <InboxIcon /> <Link to={`${url}/myOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">My Orders</Button></Link>
-            <br />
-            <InboxIcon /> <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Payment</Button></Link>
-            <br />
-            <InboxIcon /> <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Review</Button></Link>
-            <br />
-            <InboxIcon /> <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage all orders</Button></Link>
-
-            <br />
-
-
-
-            <InboxIcon /> <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Make Admin</Button></Link>
-            <br />
-
-            <InboxIcon /> <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">addProduct</Button></Link>
-            <br />
-            <InboxIcon /> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Product</Button></Link>
-            <br />
-            <Divider />
-            <InboxIcon /> <Link to={`${url}/logout`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Log Out</Button></Link>
-
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
 
         </div>
     );
@@ -122,7 +195,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
+                        {user.displayName.split(' ').splice(0, 1).join(' ')}'s Dashboard
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -170,31 +243,31 @@ function Dashboard(props) {
                         <Pay></Pay>
                     </Route>
 
-                    <Route  path={`${path}/addProduct`}>
+                    <AdminRoute path={`${path}/addProduct`}>
                         <AddProducts></AddProducts>
-                    </Route>
-                    <Route  path={`${path}/manageOrders`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageOrders`}>
                         <ManageAllOrders></ManageAllOrders>
-                    </Route>
-                    <Route  path={`${path}/myOrders`}>
+                    </AdminRoute>
+                    <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
                     </Route>
-                    <Route  path={`${path}/review`}>
+                    <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/manageProducts`}>
-                          <ManageProducts></ManageProducts>
-                    </Route>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
 
 
                     <Route path={`${path}`}>
                         <DashboardProfile></DashboardProfile>
                     </Route>
 
-                    
+
                 </Switch>
 
 

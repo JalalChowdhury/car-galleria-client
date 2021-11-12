@@ -8,7 +8,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
       url(../../../Images/contact-bg.jpg);
     background-size: cover;
-    min-height: 100vh;
+    min-height: 75vh;
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
