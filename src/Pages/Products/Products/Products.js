@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import Fade from "react-reveal/Fade";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
@@ -37,6 +38,7 @@ const Products = () => {
             <Navigation></Navigation>
             <ProductsStock />
             <Box sx={{ flexGrow: 1, mt: 12 }} >
+            <Fade bottom duration={2500}>
                 <Container sx={{ mb: 8 }}>
                     <Typography sx={{ fontWeight: 600, color: 'info.main', textAlign: 'center', my: 5 }} variant="h4" component="div">
                         Our All Products
@@ -52,6 +54,7 @@ const Products = () => {
                         }
                     </Grid>
                 </Container>
+                </Fade>
             </Box>
             <Footer />
         </Box>

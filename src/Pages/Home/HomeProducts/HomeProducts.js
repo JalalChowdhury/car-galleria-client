@@ -19,10 +19,6 @@ const HomeProducts = () => {
 
     }, [])
 
-    // const historyServices = useHistory();
-    // const handleClickPackages = () => {
-    //     historyServices.push('/packages');
-    // }
 
     // get fisrt 6 items in services 
     const topProducts = products.slice(0, 6);
