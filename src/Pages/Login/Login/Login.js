@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hook/useAuth';
 import loginImg from '../../../Images/loginBanner.svg';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 
 const Login = () => {
@@ -29,45 +30,50 @@ const Login = () => {
         signInWithGoogle(location, history)
     }
     return (
-        <Container>
-            <Grid container spacing={2} sx={{mt:15}}>
-                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Login</Typography>
-                    <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            onChange={handleOnChange}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnChange}
-                            variant="standard" />
+        <>
+            <Navigation />
+            <Container>
+                <Grid container spacing={2} sx={{ mt: 15 ,mb:5 }}>
+                    <Grid item sx={{ mt: 2,pb:3,textAlign:'center', borderRadius:'5px', boxShadow: 1,backgroundColor:'white' }} xs={12} md={6}>
+                        <Typography variant="body1" gutterBottom>Enter Your Credential</Typography>
+                        <form onSubmit={handleLoginSubmit}>
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                required
+                                id="outlined-required"
+                                label="Your Email"
+                                name="email"
+                                onChange={handleOnChange}
+                            />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                required
+                                id="outlined-required"
+                                label="Your Password"
+                                type="password"
+                                name="password"
+                                onChange={handleOnChange}
+                            />
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
-                        <NavLink
-                            style={{ textDecoration: 'none' }}
-                            to="/register">
-                            <Button variant="text">New User? Please Register</Button>
-                        </NavLink>
-                        {isLoading && <CircularProgress />}
-                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert>}
-                    </form>
-                   
-                    <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
+                            <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
+                            <NavLink
+                                style={{ textDecoration: 'none' }}
+                                to="/register">
+                                <Button variant="text">New User? Please Register</Button>
+                            </NavLink>
+                            {isLoading && <CircularProgress />}
+                            {user?.email && <Alert severity="success">Login successfully!</Alert>}
+                            {authError && <Alert severity="error">{authError}</Alert>}
+                        </form>
+
+                        <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <img style={{ width: '100%' }} src={loginImg} alt="" />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src={loginImg} alt="" />
-                </Grid>
-            </Grid>
-        </Container>
+            </Container>
+        </>
     );
 };
 

@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/orders')
+        fetch('https://enigmatic-citadel-92082.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrdersData(data);
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
     // handle 
 
     const handleStatusUpdate = (id, status) => {
-        fetch(`http://localhost:5000/updateOrderStatus`, {
+        fetch(`https://enigmatic-citadel-92082.herokuapp.com/updateOrderStatus`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

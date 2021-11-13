@@ -31,7 +31,7 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import useAuth from '../../../hook/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import './Dashboard.css';
-import userEvent from '@testing-library/user-event';
+import ManageContact from '../ManageContact/ManageContact';
 
 
 const drawerWidth = 240;
@@ -111,6 +111,15 @@ function Dashboard(props) {
                         m: 2
                     }}>
                         <i class="fas fa-cog"></i> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Product</Button></Link>
+                        <br />
+                    </Box>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        m: 2
+                    }}>
+                        <i class="fas fa-id-card"></i> <Link to={`${url}/manageContact`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Contact</Button></Link>
                         <br />
                     </Box>
 
@@ -260,6 +269,10 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
+                    </AdminRoute>
+
+                    <AdminRoute path={`${path}/manageContact`}>
+                        <ManageContact></ManageContact>
                     </AdminRoute>
 
 

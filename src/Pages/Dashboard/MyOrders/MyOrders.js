@@ -11,14 +11,14 @@ const MyOrders = () => {
     let index = 1;
 
     useEffect(() => {
-        fetch('http://localhost:5000/userOrders?email=' + user.email)
+        fetch('https://enigmatic-citadel-92082.herokuapp.com/userOrders?email=' + user.email)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user.email])
 
     //for cancel products using fetch api
     const handleOrderCancel = id => {
-        fetch(`http://localhost:5000/cancelOrder/${id}`, {
+        fetch(`https://enigmatic-citadel-92082.herokuapp.com/cancelOrder/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

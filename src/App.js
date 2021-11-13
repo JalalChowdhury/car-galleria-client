@@ -1,4 +1,3 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -12,7 +11,6 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import ProductPlaceOrder from './Pages/Products/ProductPlaceOrder/ProductPlaceOrder';
 import Products from './Pages/Products/Products/Products';
-// import Navigation from './Pages/Shared/Navigation/Navigation';
 
 
 function App() {
@@ -63,6 +61,7 @@ function App() {
             </Route>
 
           </Switch>
+         
 
         </BrowserRouter>
 

@@ -23,7 +23,7 @@ const ProductPlaceOrder = () => {
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/products/${productId}`;
+        const url = `https://enigmatic-citadel-92082.herokuapp.com/products/${productId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -36,14 +36,18 @@ const ProductPlaceOrder = () => {
 
             <Card sx={{ maxWidth: "100%", maxheight: '70%', border: 0, boxShadow: 0 }}>
 
-                <CardMedia
-                    component="img"
-                    imgage-design
+                <Box >
+                    <CardMedia
+                        component="img"
+                        imgage-design
+                        className="orderImg"
+                        style={{ width: '100%' }}
+                        image={product.img}
+                        alt="green iguana"
+                    />
+                </Box>
 
-                    style={{ width: '100%', height: '600px' }}
-                    image={product.img}
-                    alt="green iguana"
-                />
+
                 <Box style={{ p: 7 }}>
                     <CardContent >
 
@@ -63,15 +67,22 @@ const ProductPlaceOrder = () => {
                     </CardContent>
                 </Box>
 
-                <Button onClick={handleBookingOpen} variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
-                    Order Place
-                </Button>
-                <br />
-                <Link to="/home">
-                    <Button  variant="contained" sx={{ ml: 7, my: 2, width: 200 }}>
-                        Back to Home >>
+                <Box sx={{ display: 'flex', justifyContent: 'center' ,my:3,p:2}}>
+                    <Button onClick={handleBookingOpen} variant="contained" sx={{ textAlign: 'left', mr: 1, width: 200 }}>
+                        Order Place
                     </Button>
-                </Link>
+                    <Link to="/home">
+                        <Button variant="contained" sx={{ textAlign: 'right', ml: 1, width: 200 }}>
+                            Back to Home
+                        </Button>
+                    </Link>
+
+                </Box>
+
+
+
+
+
 
             </Card>
 

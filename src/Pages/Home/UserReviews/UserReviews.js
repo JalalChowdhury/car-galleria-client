@@ -10,7 +10,7 @@ const UserReviews = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://enigmatic-citadel-92082.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setFeedbacks(data);
@@ -30,7 +30,7 @@ const UserReviews = () => {
     <div className="feedbacks">
       <div className="feedbacksContent">
       <Fade bottom duration={2500}>
-        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Feedbacks</h1>
+        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>What people are saying about Car Galleria</h1>
         <div className="Apply">
           <Carousel breakPoints={breakPoints}>
             {feedbacks.map((feedback) => {

@@ -5,6 +5,9 @@ import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
+import ProductsStock from '../ProductsStock/ProductsStock';
+import './Products.css';
 
 
 
@@ -15,7 +18,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://enigmatic-citadel-92082.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
 
@@ -30,12 +33,13 @@ const Products = () => {
 
 
     return (
-        <>
+        <Box className="products">
             <Navigation></Navigation>
-            <Box sx={{ flexGrow: 1 }}>
-                <Container>
-                    <Typography sx={{ fontWeight: 600, m: 2, color: 'info.main', textAlign: 'center' }} variant="h6" component="div">
-                        OUR All Products
+            <ProductsStock />
+            <Box sx={{ flexGrow: 1, mt: 12 }} >
+                <Container sx={{ mb: 8 }}>
+                    <Typography sx={{ fontWeight: 600, color: 'info.main', textAlign: 'center', my: 5 }} variant="h4" component="div">
+                        Our All Products
                     </Typography>
 
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ sm: 12, md: 12 }}>
@@ -49,7 +53,8 @@ const Products = () => {
                     </Grid>
                 </Container>
             </Box>
-        </>
+            <Footer />
+        </Box>
     );
 };
 

@@ -26,7 +26,7 @@ const Review = () => {
         console.log(review);
 
         // send to the server
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://enigmatic-citadel-92082.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Review = () => {
     return (
        
 
-            <Box sx={{ width: '60%', mx: "auto", backgroundColor: '#f0ffff', p: 8 }}>
+            <Box sx={{ mx: "auto", backgroundColor: '#f4f4f4' }} className='reviewForm'>
 
 
 

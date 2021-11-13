@@ -28,7 +28,7 @@ const AddProducts = () => {
         // console.log("add product des ame", description);
 
         // send to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://enigmatic-citadel-92082.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,8 +49,8 @@ const AddProducts = () => {
 
     return (
         <div>
-            <Box style={{ textAlign: 'center' }}>
-                <Typography id="transition-modal-title" variant="h6" component="h2">
+            <Box style={{ textAlign: 'center' ,backgroundColor: '#f4f4f4',padding:'20px 5px'}}>
+                <Typography id="transition-modal-title" variant="h4" component="div" sx={{weight:'700px',color:'#1976d2' ,m:3,borderRadius:4}}>
                     Add Products
                 </Typography>
                 <form onSubmit={handleBookingSubmit}>
@@ -96,7 +96,7 @@ const AddProducts = () => {
                     />
                     <br />
 
-                    <Button type="Submit" variant="contained">Submit</Button>
+                    <Button type="Submit" style={{width:'200px'}} variant="contained">Submit</Button>
 
                 </form>
             </Box>

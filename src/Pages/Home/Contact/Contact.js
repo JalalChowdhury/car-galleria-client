@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Contact.css";
 import Fade from "react-reveal/Fade";
 
 const Contact = () => {
 
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const subjectRef = useRef();
+  const descriptionRef = useRef();
+
   const handleContactForm = e => {
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const subject = subjectRef.current.value;
+    const description = descriptionRef.current.value;
+
+    const contactUser = { name, email, subject, description,messageDate: new Date().toDateString('dd/mm/yyyy') };
+
+    // send to the server
+    fetch('https://enigmatic-citadel-92082.herokuapp.com/contact', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(contactUser)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+
+          alert("Your message send Successfully.As soon as,we will contact with you");
+          e.target.reset();
+
+        }
+      });
+
     e.preventDefault();
   }
 
@@ -30,18 +60,33 @@ const Contact = () => {
               </div>
               <div className="form-fields">
                 <form onSubmit={handleContactForm}>
-                  <input type="text" placeholder="Your Name" required />
-                  <input type="text" placeholder="Last Name" />
+
+
+                  <input
+                    type="text" placeholder="Your Name" required
+                    ref={nameRef}
+                  />
+                  <input
+                    type="text" placeholder="Phone Number"
+
+                  />
                   <br />
-                  <input type="Email" placeholder="Email" required />
+                  <input
+                    type="Email" placeholder="Email" required
+                    ref={emailRef}
+                  />
                   <br />
-                  <input type="text" placeholder="Subject of this message" />
+                  <input
+                    type="text" placeholder="Subject of this message"
+                    ref={subjectRef}
+                  />
                   <br />
                   <textarea
                     name="message"
                     placeholder="Message"
                     rows="5"
                     required
+                    ref={descriptionRef}
                   ></textarea>
                   <br />
                   <button className="submit">Send Message</button>
