@@ -20,8 +20,8 @@ const HomeBanner = () => {
 
                         <p id="home-header2" className="home-text my-3">QUALITY CARS. BETTER PRICES. TEST DRIVES BROUGHT TO YOU.</p>
 
-                        <Link to="/products">
-                            <Button className="servicBtn-design me-3 " style={{ width: '200px' }}>Explores</Button>
+                        <Link to="/products" className="homeBtnDesign">
+                            <Button className='homeBtn' style={{ width: '250px' }}>Explore more</Button>
                         </Link>
 
                     </Fade>

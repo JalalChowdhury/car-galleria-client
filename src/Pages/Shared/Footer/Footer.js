@@ -14,7 +14,7 @@ const Footer = () => {
                 <Container>
                     <div className="subscribe d-flex justify-content-center">
                         <div>
-                            <h2 className="mt-4 mr-5 text-center">Any Tips & Special Offers</h2>
+                            <h2 className="mt-4 mr-5 text-center">Car Galleria of Update, Tips & Special Offers</h2>
                             <h3 className="mt-1 mr-5 text-center">Subscribe to Our Newsletter</h3>
                             <p className="text-center mr-2"><small>No spam message from us, only give you latest offer which is best for you and your business</small></p>
                             <div className="input-group mb-3">
@@ -39,7 +39,7 @@ const Footer = () => {
                             <h3 className="">Services</h3>
                             <p> <small>Choose your car</small> </p>
                             <p> <small>Trade-in</small> </p>
-                            <p> <small>Sell your car</small> </p>
+                            <p> <small>Online Orders</small> </p>
                             <p> <small>Others</small> </p>
 
 

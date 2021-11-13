@@ -2,6 +2,7 @@ import { Grid, TextField, Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 // import { Box } from '@mui/system';
 import React, { useRef } from 'react';
+import Fade from "react-reveal/Fade";
 import useAuth from '../../../hook/useAuth';
 
 import './Review.css';
@@ -45,12 +46,12 @@ const Review = () => {
         e.preventDefault();
     }
     return (
-       
-
-            <Box sx={{ mx: "auto", backgroundColor: '#f4f4f4' }} className='reviewForm'>
 
 
+        <Box sx={{ mx: "auto", backgroundColor: '#f4f4f4' }} className='reviewForm'>
 
+
+            <Fade bottom duration={2500}>
 
                 <Typography id="transition-modal-title" variant="h5" component="h5" sx={{ color: 'navy', textAlign: 'center' }}>
                     WE APPRECIATE YOUR REVIEW!
@@ -58,7 +59,7 @@ const Review = () => {
                 <Typography id="transition-modal-title" variant="p" component="p" sx={{ color: 'navy', textAlign: 'center' }}>
                     Your review will help us to improve our web hosting quality products, and customer services.
                 </Typography>
-                
+
 
                 <form onSubmit={handleReviewSubmit}>
                     <Grid container spacing={2}>
@@ -121,23 +122,24 @@ const Review = () => {
                             />
 
                         </Grid>
-                       
+
 
 
 
                     </Grid>
-                    <Button  type="Submit" variant="contained" sx={{ ml: 8, px: 5 }}>Submit</Button>
+                    <Button type="Submit" variant="contained" sx={{ ml: 8, px: 5 }}>Submit</Button>
 
 
 
 
                 </form>
-            </Box>
+            </Fade>
+        </Box>
 
 
 
 
-       
+
     );
 };
 

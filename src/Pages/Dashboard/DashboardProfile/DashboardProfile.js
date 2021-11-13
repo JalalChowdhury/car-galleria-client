@@ -5,7 +5,7 @@ const DashboardProfile = () => {
     const {user} = useAuth();
     return (
         <div>
-            <h2>Name: {user.displayName}</h2>
+            <h2 style={{color:'navy'}}>Name: {user.displayName}</h2>
             <h5>E-mail : {user.email}</h5>
         </div>
     );

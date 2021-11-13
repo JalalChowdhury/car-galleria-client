@@ -61,7 +61,7 @@ function Dashboard(props) {
 
                 m: 2
             }}>
-                <i class="fas fa-home"></i><Link to='/home' style={{ textDecoration: 'none', color: 'blue' }}>
+                <i class="fas fa-home"></i><Link to='/home' style={{ textDecoration: 'none', color: 'navy' }}>
                     <Button color="inherit">Home</Button>
                 </Link>
             </Box>
@@ -78,7 +78,7 @@ function Dashboard(props) {
                         alignItems: 'center',
                         m: 2
                     }}>
-                        <i class="fas fa-cart-plus"></i> <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage all orders</Button></Link>
+                        <i class="fas fa-cart-plus"></i> <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Manage all orders</Button></Link>
 
                         <br />
                     </Box>
@@ -89,7 +89,7 @@ function Dashboard(props) {
                         alignItems: 'center',
                         m: 2
                     }}>
-                        <i class="fas fa-user-shield"></i> <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Make Admin</Button></Link>
+                        <i class="fas fa-user-shield"></i> <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Make Admin</Button></Link>
                         <br />
                     </Box>
 
@@ -100,7 +100,7 @@ function Dashboard(props) {
                         alignItems: 'center',
                         m: 2
                     }}>
-                        <i class="fas fa-plus-square"></i> <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">addProduct</Button></Link>
+                        <i class="fas fa-plus-square"></i> <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">addProduct</Button></Link>
                         <br />
                     </Box>
 
@@ -110,7 +110,7 @@ function Dashboard(props) {
                         alignItems: 'center',
                         m: 2
                     }}>
-                        <i class="fas fa-cog"></i> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Product</Button></Link>
+                        <i class="fas fa-cog"></i> <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Manage Product</Button></Link>
                         <br />
                     </Box>
                     <Box sx={{
@@ -119,7 +119,7 @@ function Dashboard(props) {
                         alignItems: 'center',
                         m: 2
                     }}>
-                        <i class="fas fa-id-card"></i> <Link to={`${url}/manageContact`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Manage Contact</Button></Link>
+                        <i class="fas fa-id-card"></i> <Link to={`${url}/manageContact`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Manage Contact</Button></Link>
                         <br />
                     </Box>
 
@@ -135,7 +135,7 @@ function Dashboard(props) {
                             alignItems: 'center',
                             m: 2
                         }}>
-                            <i class="fas fa-cart-plus"></i> <Link to={`${url}/myOrders`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">My Orders</Button></Link>
+                            <i class="fas fa-cart-plus"></i> <Link to={`${url}/myOrders`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">My Orders</Button></Link>
                             <br />
                         </Box>
                         <Box sx={{
@@ -144,7 +144,7 @@ function Dashboard(props) {
                             alignItems: 'center',
                             m: 2
                         }}>
-                            <i class="fas fa-file-invoice-dollar"></i> <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Payment</Button></Link>
+                            <i class="fas fa-file-invoice-dollar"></i> <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Payment</Button></Link>
                             <br />
 
                         </Box>
@@ -154,7 +154,7 @@ function Dashboard(props) {
                             alignItems: 'center',
                             m: 2
                         }}>
-                            <i class="fas fa-comment-dots"></i><Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'blue' }}><Button color="inherit">Review</Button></Link>
+                            <i class="fas fa-comment-dots"></i><Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'navy' }}><Button color="inherit">Review</Button></Link>
                             <br />
 
                         </Box>
@@ -165,7 +165,7 @@ function Dashboard(props) {
 
 
 
-            <Divider />
+            {/* <Divider /> */}
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -173,7 +173,7 @@ function Dashboard(props) {
                 m: 2
             }}>
 
-                <i class="fas fa-sign-out-alt"></i> <Link to={`${url}/logout`} style={{ textDecoration: 'none', color: 'blue', p: 4 }}><Button onClick={logout} color="inherit">Log Out</Button></Link>
+                <i class="fas fa-sign-out-alt"></i> <Link to={`${url}/logout`} style={{ textDecoration: 'none', color: 'navy', p: 4 }}><Button onClick={logout} color="inherit">Log Out</Button></Link>
                 <br />
             </Box>
 
@@ -192,6 +192,7 @@ function Dashboard(props) {
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
+                style={{backgroundColor:'#00c9a7'}}
             >
                 <Toolbar>
                     <IconButton

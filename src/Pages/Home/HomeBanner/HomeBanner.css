@@ -1,11 +1,13 @@
 #home-header1{
     font-size: 60px;
     color:white;
-    }
+    text-align: center;
+}
 #home-header2{
     
     color:white;
     font-size: 20px;
+    text-align: center;
 }
 .homeBanner{
     width: 100%;
@@ -23,6 +25,19 @@
     
     
 }
+.homeBtnDesign{
+    display: flex;
+    justify-content: center;
+}
+.homeBtn{
+    text-decoration: none;
+    background-color: #0388d1;
+    text-align: center;
+}
+.homeBtn:hover{
+    background-color:none;
+    border: 1px solid #0388d1;
+}
 
 
 @media only screen and (max-width: 688px) {
@@ -30,11 +45,13 @@
     #home-header1{
         font-size: 30px;
         color:white;
+        text-align: center;
     }
     #home-header2{
         
         color:#00bcd4;
         font-size: 16px;
+        text-align: center;
     }
     .homeBanner{
         width: 100%;

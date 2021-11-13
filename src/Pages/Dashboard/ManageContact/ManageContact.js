@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import Fade from "react-reveal/Fade";
 
 const ManageContact = () => {
 
@@ -15,8 +16,9 @@ const ManageContact = () => {
 
     return (
         <div>
-            <h1> Manage Products </h1>
+            <h1> Manage Contact </h1>
             <div className="table-div">
+            <Fade bottom duration={2500}>
                 <Table striped bordered hover >
                     <thead>
                         <tr>
@@ -44,6 +46,7 @@ const ManageContact = () => {
                         }
                     </tbody>
                 </Table>
+                </Fade>
             </div>
         </div>
     );

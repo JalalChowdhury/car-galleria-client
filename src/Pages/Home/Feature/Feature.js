@@ -9,7 +9,7 @@ import Fade from "react-reveal/Fade";
 
 const Feature = () => {
     return (
-        <Box style={{ backgroundColor: "#f0f8ff", pt: 3 }}>
+        <Box style={{ backgroundColor: "#f0f8ff", paddingTop: '10px' }}>
             <Container>
                 <Fade bottom duration={2500}>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ sm: 12, md: 12 }}>

@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import './ProductCard.css';
 
 
 const ProductCard = (props) => {
@@ -17,7 +18,7 @@ const ProductCard = (props) => {
     return (
         <Grid item  sm={12} md={4}>
 
-            <Card sx={{ maxWidth: 345, border: 1, boxShadow: 0 }}>
+            <Card sx={{ maxWidth: 345,boxShadow: 1 }} className='productCard'>
 
                 <CardMedia
                     component="img"
@@ -29,14 +30,14 @@ const ProductCard = (props) => {
                 />
                 <CardContent>
 
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h5" component="div" style={{color:'navy',fontWeight:'600',marginLeft:'40px',marginBottom:'10px'}}>
                         {name}
                     </Typography>
                     <Typography variant="body2" color="text.primary">
-                        {description.split(' ').splice(0, 17).join(' ')} ...
+                        {description.split(' ').splice(0, 30).join(' ')} ...
                     </Typography>
                 </CardContent>
-                <Button variant="contained" href={productDetailURL} sx={{ ml: 7,my:2, width: 200  }}>
+                <Button variant="contained" href={productDetailURL} sx={{ ml: 7,my:2, width: 200 }} style={{color:'white'}}>
                     Explore
                 </Button>
 
