@@ -6,7 +6,7 @@ Car Galleria is a car showcase platform where people find  car and buy there cho
 
 <h2>Live Site<h/2> 
 
-<a href="https://car-galleria.web.app/">Click here</a>
+<!-- <a href="https://car-galleria.web.app/">Click here</a> -->
 
 <h2>Features</h2>
     <ul type='circle'>

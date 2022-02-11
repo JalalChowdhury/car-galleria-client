@@ -7,6 +7,7 @@ const DashboardProfile = () => {
         <div>
             <h2 style={{color:'navy'}}>Name: {user.displayName}</h2>
             <h5>E-mail : {user.email}</h5>
+            
         </div>
     );
 };

@@ -32,7 +32,8 @@ const useFirebase = () => {
                 }).then(() => {
                 }).catch((error) => {
                 });
-                history.replace('/');
+                logout();
+                history.replace('/login');
             })
             .catch((error) => {
                 setAuthError(error.message);
